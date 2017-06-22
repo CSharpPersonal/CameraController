@@ -34,8 +34,32 @@ namespace camera_controller
 
         private void SendSthButton_Click(object sender, EventArgs e)
         {
-            bool success = SystemManager.PortController.SendOrder(1);
+            bool success = SystemManager.PortController.SendOrder(4);
             StatusLabel.Text = "Send Order success: " + success.ToString();
+        }
+
+        private void CameraUpButton_Click(object sender, EventArgs e)
+        {
+            bool success = SystemManager.PortController.SendOrder(1);
+            StatusLabel.Text = "Send 'UP' Order success: " + success.ToString();
+        }
+
+        private void CameraDownButton_Click(object sender, EventArgs e)
+        {
+            bool success = SystemManager.PortController.SendOrder(0);
+            StatusLabel.Text = "Send 'DOWN' Order success: " + success.ToString();
+        }
+
+        private void CameraLeftButton_Click(object sender, EventArgs e)
+        {
+            bool success = SystemManager.PortController.SendOrder(3);
+            StatusLabel.Text = "Send 'LEFT' Order success: " + success.ToString();
+        }
+
+        private void CameraRightButton_Click(object sender, EventArgs e)
+        {
+            bool success = SystemManager.PortController.SendOrder(2);
+            StatusLabel.Text = "Send 'RIGHT' Order success: " + success.ToString();
         }
     }
 }
