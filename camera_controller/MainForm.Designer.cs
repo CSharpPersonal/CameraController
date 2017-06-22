@@ -42,12 +42,14 @@
             this.MinimizeBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
             this.CamImageBox = new Emgu.CV.UI.ImageBox();
+            this.EnableKeyPadBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CamImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // OpenCamButton
             // 
             this.OpenCamButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.OpenCamButton.FlatAppearance.BorderSize = 0;
             this.OpenCamButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenCamButton.ForeColor = System.Drawing.SystemColors.Control;
             this.OpenCamButton.Location = new System.Drawing.Point(12, 288);
@@ -64,10 +66,12 @@
             this.PortNameTextBox.Name = "PortNameTextBox";
             this.PortNameTextBox.Size = new System.Drawing.Size(46, 21);
             this.PortNameTextBox.TabIndex = 3;
+            this.PortNameTextBox.Text = "COM";
             // 
             // openPortButton
             // 
             this.openPortButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.openPortButton.FlatAppearance.BorderSize = 0;
             this.openPortButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.openPortButton.ForeColor = System.Drawing.SystemColors.Control;
             this.openPortButton.Location = new System.Drawing.Point(154, 288);
@@ -90,6 +94,8 @@
             // EnableServerBtn
             // 
             this.EnableServerBtn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.EnableServerBtn.Enabled = false;
+            this.EnableServerBtn.FlatAppearance.BorderSize = 0;
             this.EnableServerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EnableServerBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.EnableServerBtn.Location = new System.Drawing.Point(12, 325);
@@ -103,12 +109,14 @@
             // CameraUpButton
             // 
             this.CameraUpButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.CameraUpButton.Enabled = false;
+            this.CameraUpButton.FlatAppearance.BorderSize = 0;
             this.CameraUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CameraUpButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.CameraUpButton.Location = new System.Drawing.Point(195, 325);
+            this.CameraUpButton.Location = new System.Drawing.Point(225, 325);
             this.CameraUpButton.Margin = new System.Windows.Forms.Padding(2);
             this.CameraUpButton.Name = "CameraUpButton";
-            this.CameraUpButton.Size = new System.Drawing.Size(76, 27);
+            this.CameraUpButton.Size = new System.Drawing.Size(86, 27);
             this.CameraUpButton.TabIndex = 7;
             this.CameraUpButton.Text = "Up";
             this.CameraUpButton.UseVisualStyleBackColor = false;
@@ -117,12 +125,14 @@
             // CameraDownButton
             // 
             this.CameraDownButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.CameraDownButton.Enabled = false;
+            this.CameraDownButton.FlatAppearance.BorderSize = 0;
             this.CameraDownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CameraDownButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.CameraDownButton.Location = new System.Drawing.Point(195, 356);
+            this.CameraDownButton.Location = new System.Drawing.Point(245, 356);
             this.CameraDownButton.Margin = new System.Windows.Forms.Padding(2);
             this.CameraDownButton.Name = "CameraDownButton";
-            this.CameraDownButton.Size = new System.Drawing.Size(76, 27);
+            this.CameraDownButton.Size = new System.Drawing.Size(47, 27);
             this.CameraDownButton.TabIndex = 8;
             this.CameraDownButton.Text = "Down";
             this.CameraDownButton.UseVisualStyleBackColor = false;
@@ -131,12 +141,14 @@
             // CameraLeftButton
             // 
             this.CameraLeftButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.CameraLeftButton.Enabled = false;
+            this.CameraLeftButton.FlatAppearance.BorderSize = 0;
             this.CameraLeftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CameraLeftButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.CameraLeftButton.Location = new System.Drawing.Point(112, 356);
+            this.CameraLeftButton.Location = new System.Drawing.Point(195, 356);
             this.CameraLeftButton.Margin = new System.Windows.Forms.Padding(2);
             this.CameraLeftButton.Name = "CameraLeftButton";
-            this.CameraLeftButton.Size = new System.Drawing.Size(80, 27);
+            this.CameraLeftButton.Size = new System.Drawing.Size(46, 27);
             this.CameraLeftButton.TabIndex = 9;
             this.CameraLeftButton.Text = "Left";
             this.CameraLeftButton.UseVisualStyleBackColor = false;
@@ -145,12 +157,14 @@
             // CameraRightButton
             // 
             this.CameraRightButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.CameraRightButton.Enabled = false;
+            this.CameraRightButton.FlatAppearance.BorderSize = 0;
             this.CameraRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CameraRightButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.CameraRightButton.Location = new System.Drawing.Point(275, 356);
+            this.CameraRightButton.Location = new System.Drawing.Point(296, 356);
             this.CameraRightButton.Margin = new System.Windows.Forms.Padding(2);
             this.CameraRightButton.Name = "CameraRightButton";
-            this.CameraRightButton.Size = new System.Drawing.Size(67, 27);
+            this.CameraRightButton.Size = new System.Drawing.Size(45, 27);
             this.CameraRightButton.TabIndex = 10;
             this.CameraRightButton.Text = "Right";
             this.CameraRightButton.UseVisualStyleBackColor = false;
@@ -164,7 +178,8 @@
             // 
             this.MinimizeBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MinimizeBtn.BackgroundImage = global::camera_controller.Properties.Resources.minimize;
-            this.MinimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MinimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.MinimizeBtn.FlatAppearance.BorderSize = 0;
             this.MinimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinimizeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MinimizeBtn.Location = new System.Drawing.Point(286, 0);
@@ -179,7 +194,8 @@
             // 
             this.CloseBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.CloseBtn.BackgroundImage = global::camera_controller.Properties.Resources.close_btn;
-            this.CloseBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CloseBtn.FlatAppearance.BorderSize = 0;
             this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.CloseBtn.Location = new System.Drawing.Point(317, 0);
@@ -200,6 +216,21 @@
             this.CamImageBox.TabIndex = 2;
             this.CamImageBox.TabStop = false;
             // 
+            // EnableKeyPadBtn
+            // 
+            this.EnableKeyPadBtn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.EnableKeyPadBtn.Enabled = false;
+            this.EnableKeyPadBtn.FlatAppearance.BorderSize = 0;
+            this.EnableKeyPadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnableKeyPadBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.EnableKeyPadBtn.Location = new System.Drawing.Point(12, 358);
+            this.EnableKeyPadBtn.Name = "EnableKeyPadBtn";
+            this.EnableKeyPadBtn.Size = new System.Drawing.Size(135, 27);
+            this.EnableKeyPadBtn.TabIndex = 13;
+            this.EnableKeyPadBtn.Text = "EnableKeyPad";
+            this.EnableKeyPadBtn.UseVisualStyleBackColor = false;
+            this.EnableKeyPadBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +239,7 @@
             this.BackColor = System.Drawing.SystemColors.MenuText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(352, 393);
+            this.Controls.Add(this.EnableKeyPadBtn);
             this.Controls.Add(this.MinimizeBtn);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.CameraRightButton);
@@ -247,6 +279,7 @@
         public System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.Button CloseBtn;
         private System.Windows.Forms.Button MinimizeBtn;
+        private System.Windows.Forms.Button EnableKeyPadBtn;
     }
 }
 

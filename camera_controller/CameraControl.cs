@@ -14,15 +14,44 @@ namespace camera_controller
 {
     public class CameraControl
     {
-        public void ShowCam(ImageBox CamImageBox)
+        public ImageBox CamImageBox;
+        Capture capture;
+        public CameraControl(ImageBox CamImageBox)
         {
-            CamImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            Capture capture = new Capture(0); //create a camera captue in surface 1 for front camera
-            Application.Idle += new EventHandler(delegate (object sender, EventArgs e)
-            {  //run this until application closed (close button click on image viewer)
-                CamImageBox.Image = capture.QueryFrame(); //draw the image obtained from camera
-            });
+            this.CamImageBox = CamImageBox;
+        }
+        public bool ShowCam()
+        {
+            try
+            {
+                CamImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                capture = new Capture(0); //create a camera captue in surface 1 for front camera
+                Application.Idle += new EventHandler(cam_th);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
             
         }
-    }
+        public bool CloseCam()
+        {
+            try
+            {
+                Application.Idle -= cam_th;
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+
+        }
+        private void cam_th(object sender, EventArgs e)
+            {  //run this until application closed (close button click on image viewer)
+                CamImageBox.Image = capture.QueryFrame(); //draw the image obtained from camera
+            }
+        
+}
 }

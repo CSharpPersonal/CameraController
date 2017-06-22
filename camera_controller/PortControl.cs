@@ -39,6 +39,19 @@ namespace camera_controller
             catch {return false; }
             return true;
         }
+        public bool Close()
+        {
+            try
+            {
+                _serialPort.Close();
+            }
+            catch(Exception ex)
+            {
+
+                return false;
+            }
+            return true;
+        }
         public bool SendOrder(int order)
         {
             try
