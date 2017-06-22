@@ -16,6 +16,7 @@ namespace camera_controller
         {
             InitializeComponent();
             SystemManager.PortController = new PortControl();
+            ServerManager.frm = this;
         }
 
         private void OpenCamButton_Click(object sender, EventArgs e)
@@ -34,32 +35,76 @@ namespace camera_controller
 
         private void SendSthButton_Click(object sender, EventArgs e)
         {
-            bool success = SystemManager.PortController.SendOrder(4);
-            StatusLabel.Text = "Send Order success: " + success.ToString();
+            if (!SystemManager.server_control_enable)
+            {
+                SystemManager.server_control_enable = true;
+                ServerManager.runMonitor();
+                this.EnableServerBtn.Text = "Disable Derver";
+            }
+            else
+            {
+                this.StatusLabel.Text = "server control disabled";
+                SystemManager.server_control_enable = false;
+                ServerManager.stopMonitor();
+                this.EnableServerBtn.Text = "Enable Derver";
+            }
         }
 
         private void CameraUpButton_Click(object sender, EventArgs e)
         {
-            bool success = SystemManager.PortController.SendOrder(1);
-            StatusLabel.Text = "Send 'UP' Order success: " + success.ToString();
+            if (SystemManager.server_control_enable)
+            {
+                ServerManager.trySend(1);
+            }
+            else
+            {
+                bool success = SystemManager.PortController.SendOrder(1);
+                StatusLabel.Text = "Send 'UP' Order success: " + success.ToString();
+            }
         }
 
         private void CameraDownButton_Click(object sender, EventArgs e)
         {
-            bool success = SystemManager.PortController.SendOrder(0);
-            StatusLabel.Text = "Send 'DOWN' Order success: " + success.ToString();
+            if (SystemManager.server_control_enable)
+            {
+                ServerManager.trySend(4);
+            }
+            else
+            {
+                bool success = SystemManager.PortController.SendOrder(4);
+                StatusLabel.Text = "Send 'DOWN' Order success: " + success.ToString();
+            }
         }
 
         private void CameraLeftButton_Click(object sender, EventArgs e)
         {
-            bool success = SystemManager.PortController.SendOrder(3);
-            StatusLabel.Text = "Send 'LEFT' Order success: " + success.ToString();
+            if (SystemManager.server_control_enable)
+            {
+                ServerManager.trySend(3);
+            }
+            else
+            {
+                bool success = SystemManager.PortController.SendOrder(3);
+                StatusLabel.Text = "Send 'LEFT' Order success: " + success.ToString();
+            }
         }
 
         private void CameraRightButton_Click(object sender, EventArgs e)
         {
-            bool success = SystemManager.PortController.SendOrder(2);
-            StatusLabel.Text = "Send 'RIGHT' Order success: " + success.ToString();
+            if (SystemManager.server_control_enable)
+            {
+                ServerManager.trySend(2);
+            }
+            else
+            {
+                bool success = SystemManager.PortController.SendOrder(2);
+                StatusLabel.Text = "Send 'RIGHT' Order success: " + success.ToString();
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
     }
 }

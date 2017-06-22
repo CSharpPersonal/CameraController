@@ -34,20 +34,20 @@
             this.PortNameTextBox = new System.Windows.Forms.TextBox();
             this.openPortButton = new System.Windows.Forms.Button();
             this.StatusLabel = new System.Windows.Forms.Label();
-            this.SendSthButton = new System.Windows.Forms.Button();
+            this.EnableServerBtn = new System.Windows.Forms.Button();
             this.CameraUpButton = new System.Windows.Forms.Button();
             this.CameraDownButton = new System.Windows.Forms.Button();
             this.CameraLeftButton = new System.Windows.Forms.Button();
             this.CameraRightButton = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.CamImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // OpenCamButton
             // 
-            this.OpenCamButton.Location = new System.Drawing.Point(24, 532);
-            this.OpenCamButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.OpenCamButton.Location = new System.Drawing.Point(12, 288);
             this.OpenCamButton.Name = "OpenCamButton";
-            this.OpenCamButton.Size = new System.Drawing.Size(168, 55);
+            this.OpenCamButton.Size = new System.Drawing.Size(84, 30);
             this.OpenCamButton.TabIndex = 0;
             this.OpenCamButton.Text = "Open Cam";
             this.OpenCamButton.UseVisualStyleBackColor = true;
@@ -55,27 +55,25 @@
             // 
             // CamImageBox
             // 
-            this.CamImageBox.Location = new System.Drawing.Point(24, 46);
-            this.CamImageBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.CamImageBox.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.CamImageBox.Location = new System.Drawing.Point(12, 25);
             this.CamImageBox.Name = "CamImageBox";
-            this.CamImageBox.Size = new System.Drawing.Size(660, 474);
+            this.CamImageBox.Size = new System.Drawing.Size(330, 257);
             this.CamImageBox.TabIndex = 2;
             this.CamImageBox.TabStop = false;
             // 
             // PortNameTextBox
             // 
-            this.PortNameTextBox.Location = new System.Drawing.Point(204, 543);
-            this.PortNameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PortNameTextBox.Location = new System.Drawing.Point(102, 294);
             this.PortNameTextBox.Name = "PortNameTextBox";
-            this.PortNameTextBox.Size = new System.Drawing.Size(88, 35);
+            this.PortNameTextBox.Size = new System.Drawing.Size(46, 20);
             this.PortNameTextBox.TabIndex = 3;
             // 
             // openPortButton
             // 
-            this.openPortButton.Location = new System.Drawing.Point(308, 532);
-            this.openPortButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.openPortButton.Location = new System.Drawing.Point(154, 288);
             this.openPortButton.Name = "openPortButton";
-            this.openPortButton.Size = new System.Drawing.Size(170, 55);
+            this.openPortButton.Size = new System.Drawing.Size(85, 30);
             this.openPortButton.TabIndex = 4;
             this.openPortButton.Text = "Open Port";
             this.openPortButton.UseVisualStyleBackColor = true;
@@ -84,29 +82,28 @@
             // StatusLabel
             // 
             this.StatusLabel.AutoSize = true;
-            this.StatusLabel.Location = new System.Drawing.Point(18, 17);
-            this.StatusLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.StatusLabel.Location = new System.Drawing.Point(9, 9);
             this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(142, 24);
+            this.StatusLabel.Size = new System.Drawing.Size(50, 13);
             this.StatusLabel.TabIndex = 5;
             this.StatusLabel.Text = "Initialised";
             // 
-            // SendSthButton
+            // EnableServerBtn
             // 
-            this.SendSthButton.Location = new System.Drawing.Point(26, 600);
-            this.SendSthButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.SendSthButton.Name = "SendSthButton";
-            this.SendSthButton.Size = new System.Drawing.Size(166, 50);
-            this.SendSthButton.TabIndex = 6;
-            this.SendSthButton.Text = "SendSth";
-            this.SendSthButton.UseVisualStyleBackColor = true;
-            this.SendSthButton.Click += new System.EventHandler(this.SendSthButton_Click);
+            this.EnableServerBtn.Location = new System.Drawing.Point(13, 325);
+            this.EnableServerBtn.Name = "EnableServerBtn";
+            this.EnableServerBtn.Size = new System.Drawing.Size(135, 27);
+            this.EnableServerBtn.TabIndex = 6;
+            this.EnableServerBtn.Text = "EnableServer";
+            this.EnableServerBtn.UseVisualStyleBackColor = true;
+            this.EnableServerBtn.Click += new System.EventHandler(this.SendSthButton_Click);
             // 
             // CameraUpButton
             // 
-            this.CameraUpButton.Location = new System.Drawing.Point(390, 600);
+            this.CameraUpButton.Location = new System.Drawing.Point(195, 325);
+            this.CameraUpButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CameraUpButton.Name = "CameraUpButton";
-            this.CameraUpButton.Size = new System.Drawing.Size(153, 50);
+            this.CameraUpButton.Size = new System.Drawing.Size(76, 27);
             this.CameraUpButton.TabIndex = 7;
             this.CameraUpButton.Text = "Up";
             this.CameraUpButton.UseVisualStyleBackColor = true;
@@ -114,9 +111,10 @@
             // 
             // CameraDownButton
             // 
-            this.CameraDownButton.Location = new System.Drawing.Point(390, 657);
+            this.CameraDownButton.Location = new System.Drawing.Point(195, 356);
+            this.CameraDownButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CameraDownButton.Name = "CameraDownButton";
-            this.CameraDownButton.Size = new System.Drawing.Size(153, 49);
+            this.CameraDownButton.Size = new System.Drawing.Size(76, 27);
             this.CameraDownButton.TabIndex = 8;
             this.CameraDownButton.Text = "Down";
             this.CameraDownButton.UseVisualStyleBackColor = true;
@@ -124,9 +122,10 @@
             // 
             // CameraLeftButton
             // 
-            this.CameraLeftButton.Location = new System.Drawing.Point(224, 657);
+            this.CameraLeftButton.Location = new System.Drawing.Point(112, 356);
+            this.CameraLeftButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CameraLeftButton.Name = "CameraLeftButton";
-            this.CameraLeftButton.Size = new System.Drawing.Size(160, 49);
+            this.CameraLeftButton.Size = new System.Drawing.Size(80, 27);
             this.CameraLeftButton.TabIndex = 9;
             this.CameraLeftButton.Text = "Left";
             this.CameraLeftButton.UseVisualStyleBackColor = true;
@@ -134,30 +133,34 @@
             // 
             // CameraRightButton
             // 
-            this.CameraRightButton.Location = new System.Drawing.Point(550, 657);
+            this.CameraRightButton.Location = new System.Drawing.Point(275, 356);
+            this.CameraRightButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CameraRightButton.Name = "CameraRightButton";
-            this.CameraRightButton.Size = new System.Drawing.Size(134, 49);
+            this.CameraRightButton.Size = new System.Drawing.Size(67, 27);
             this.CameraRightButton.TabIndex = 10;
             this.CameraRightButton.Text = "Right";
             this.CameraRightButton.UseVisualStyleBackColor = true;
             this.CameraRightButton.Click += new System.EventHandler(this.CameraRightButton_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 726);
+            this.ClientSize = new System.Drawing.Size(352, 393);
             this.Controls.Add(this.CameraRightButton);
             this.Controls.Add(this.CameraLeftButton);
             this.Controls.Add(this.CameraDownButton);
             this.Controls.Add(this.CameraUpButton);
-            this.Controls.Add(this.SendSthButton);
+            this.Controls.Add(this.EnableServerBtn);
             this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.openPortButton);
             this.Controls.Add(this.PortNameTextBox);
             this.Controls.Add(this.CamImageBox);
             this.Controls.Add(this.OpenCamButton);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "MainForm";
             this.Text = "Camera Controller";
             ((System.ComponentModel.ISupportInitialize)(this.CamImageBox)).EndInit();
@@ -172,12 +175,13 @@
         private Emgu.CV.UI.ImageBox CamImageBox;
         private System.Windows.Forms.TextBox PortNameTextBox;
         private System.Windows.Forms.Button openPortButton;
-        private System.Windows.Forms.Label StatusLabel;
-        private System.Windows.Forms.Button SendSthButton;
+        private System.Windows.Forms.Button EnableServerBtn;
         private System.Windows.Forms.Button CameraUpButton;
         private System.Windows.Forms.Button CameraDownButton;
         private System.Windows.Forms.Button CameraLeftButton;
         private System.Windows.Forms.Button CameraRightButton;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public System.Windows.Forms.Label StatusLabel;
     }
 }
 

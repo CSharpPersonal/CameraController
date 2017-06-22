@@ -8,6 +8,7 @@ namespace camera_controller
 {
     public static class SystemManager
     {
+        public static bool server_control_enable = false;
         public static PortControl PortController;
     }
 }
