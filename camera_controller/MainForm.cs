@@ -248,5 +248,23 @@ namespace camera_controller
                 SystemManager.keyPad_enable = false;
             }
         }
+
+        private async void CamImageBox_Click(object sender, EventArgs e)
+        {
+            if (CamImageBox.Image != null)
+            {
+                this.StatusLabel.Text = "waiting for server";
+                SystemManager.cam1.saveImage();
+                string screenshot_dir = Application.StartupPath + "\\screenshot\\image.jpeg";
+                string response = await ServerManager.trySendFile(screenshot_dir);
+                this.StatusLabel.Text = response;
+
+            }
+            else
+            {
+                MessageBox.Show("Please Open Cam");
+            }
+
+        }
     }
 }

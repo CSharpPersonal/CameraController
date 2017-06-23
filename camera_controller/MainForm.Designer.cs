@@ -215,6 +215,7 @@
             this.CamImageBox.Size = new System.Drawing.Size(330, 257);
             this.CamImageBox.TabIndex = 2;
             this.CamImageBox.TabStop = false;
+            this.CamImageBox.Click += new System.EventHandler(this.CamImageBox_Click);
             // 
             // EnableKeyPadBtn
             // 

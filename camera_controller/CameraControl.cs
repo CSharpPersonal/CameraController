@@ -9,6 +9,7 @@ using Emgu.CV.Structure;
 using Emgu.Util;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace camera_controller
 {
@@ -42,16 +43,31 @@ namespace camera_controller
                 Application.Idle -= cam_th;
                 return true;
             }
-            catch(Exception ex)
+            catch
             {
                 return false;
             }
 
         }
         private void cam_th(object sender, EventArgs e)
-            {  //run this until application closed (close button click on image viewer)
+        {  //run this until application closed (close button click on image viewer)
                 CamImageBox.Image = capture.QueryFrame(); //draw the image obtained from camera
+        }
+        public bool saveImage()
+        {
+            try
+            {
+                string screenshot_dir = Application.StartupPath + "\\screenshot";
+                if (!Directory.Exists(screenshot_dir))
+                {
+                    Directory.CreateDirectory(screenshot_dir);
+                }
+                string filename = screenshot_dir + "\\image.jpeg";
+                this.CamImageBox.Image.Save(@filename);
             }
-        
-}
+            catch
+            { return false; }
+            return true;
+        } 
+    }
 }
