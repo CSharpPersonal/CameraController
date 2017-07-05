@@ -51,7 +51,7 @@ namespace camera_controller
         public static void runMonitor()
         {
             scan_timer = new System.Threading.Timer(async delegate
-            {
+            { 
                 Random rnd = new Random();
                 string cmd = "http://createweb.com.au/test/camera_cmd.php?id=" + rnd.NextDouble().ToString();
                 var responseString = await client.GetStringAsync(cmd);

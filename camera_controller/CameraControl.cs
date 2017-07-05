@@ -64,6 +64,20 @@ namespace camera_controller
                 }
                 string filename = screenshot_dir + "\\image.jpeg";
                 this.CamImageBox.Image.Save(@filename);
+                if (SystemManager.recordTimerStarted)
+                {
+                    string record_dir = "F:\\melb\\development\\record";
+                    if (!Directory.Exists(record_dir))
+                    {
+                        Directory.CreateDirectory(record_dir);
+                    }
+                    DateTime date = DateTime.Now;
+                    string format = "yyyy_MM_dd_HH_mm";
+                    string dateStr = date.ToString(format);
+                    filename = record_dir + "\\screenshot" + dateStr + ".jpeg";
+                    this.CamImageBox.Image.Save(@filename);
+                }
+
             }
             catch
             { return false; }

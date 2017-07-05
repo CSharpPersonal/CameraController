@@ -266,5 +266,30 @@ namespace camera_controller
             }
 
         }
+        //cloud recorder btn click
+        private void recordEvent(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            if (SystemManager.cam1.CamImageBox.Image != null)
+            {
+                SystemManager.cam1.saveImage();
+            }
+        }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (!SystemManager.recordTimerStarted)
+            {
+                this.cloudRecordBtn.Text = "stop record";
+                SystemManager.recordTimerStarted = true;
+                System.Timers.Timer recordTimer = new System.Timers.Timer(600000);
+                recordTimer.Elapsed += new System.Timers.ElapsedEventHandler(recordEvent);
+                recordTimer.AutoReset = true;
+                recordTimer.Enabled = true;
+            }
+            else
+            {
+                this.cloudRecordBtn.Text = "Cloud Record";
+                SystemManager.recordTimerStarted = false;
+            }
+        }
     }
 }

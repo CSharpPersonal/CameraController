@@ -43,6 +43,7 @@
             this.CloseBtn = new System.Windows.Forms.Button();
             this.CamImageBox = new Emgu.CV.UI.ImageBox();
             this.EnableKeyPadBtn = new System.Windows.Forms.Button();
+            this.cloudRecordBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CamImageBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -232,6 +233,20 @@
             this.EnableKeyPadBtn.UseVisualStyleBackColor = false;
             this.EnableKeyPadBtn.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cloudRecordBtn
+            // 
+            this.cloudRecordBtn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.cloudRecordBtn.FlatAppearance.BorderSize = 0;
+            this.cloudRecordBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cloudRecordBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.cloudRecordBtn.Location = new System.Drawing.Point(245, 288);
+            this.cloudRecordBtn.Name = "cloudRecordBtn";
+            this.cloudRecordBtn.Size = new System.Drawing.Size(97, 30);
+            this.cloudRecordBtn.TabIndex = 14;
+            this.cloudRecordBtn.Text = "Cloud Record";
+            this.cloudRecordBtn.UseVisualStyleBackColor = false;
+            this.cloudRecordBtn.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +255,7 @@
             this.BackColor = System.Drawing.SystemColors.MenuText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(352, 393);
+            this.Controls.Add(this.cloudRecordBtn);
             this.Controls.Add(this.EnableKeyPadBtn);
             this.Controls.Add(this.MinimizeBtn);
             this.Controls.Add(this.CloseBtn);
@@ -281,6 +297,7 @@
         private System.Windows.Forms.Button CloseBtn;
         private System.Windows.Forms.Button MinimizeBtn;
         private System.Windows.Forms.Button EnableKeyPadBtn;
+        private System.Windows.Forms.Button cloudRecordBtn;
     }
 }
 

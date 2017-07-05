@@ -12,7 +12,9 @@ namespace camera_controller
         public static bool keyPad_enable = false;
         public static bool port_opened = false;
         public static bool cam_opened = false;
+        public static bool recordTimerStarted = false;
         public static PortControl PortController;
         public static CameraControl cam1;
+        
     }
 }
